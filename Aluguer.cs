@@ -27,5 +27,9 @@ namespace trabalho
         {
             return this.valor;
         }
+        public int getID()
+        {
+            return this.id;
+        }
     }
 }

@@ -31,11 +31,8 @@ namespace trabalho
             foreach (Aluguer a in listaAluguer)
             {
                 a.monstrarAluguer();
+                Console.WriteLine("------------------------------");
             }
-        }
-        public void totalFaturado()
-        {
-
         }
     }
 }

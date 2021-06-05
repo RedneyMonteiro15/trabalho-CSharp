@@ -20,16 +20,16 @@ namespace trabalho
                 definirPreco(5);
             }
         }
-        public void adicionarCliente(string nome, string carta)
+        public bool adicionarCliente(string nome, string carta)
         {
             Cliente c = encontrarCliente(carta);
             if (c == null)
             {
                 c = new Cliente(nome, carta);
                 listaClientes.Add(c);
-                return;
+                return true;
             }
-            Console.WriteLine("Cliente já está cadastrado");
+            return false;
         }
         public Cliente encontrarCliente(string carta)
         {
@@ -51,8 +51,9 @@ namespace trabalho
         }
         public void definirPreco(decimal preco)
         {
-            Viatura v = new Viatura();
+            Viatura v = new Utilitario("u");
             v.definirPreco(preco);
+            
         }
         public bool garantirPreco(decimal preco)
         {
@@ -62,27 +63,28 @@ namespace trabalho
             }
             return false;
         }
-        public void adicionarViaturaUtilitaria(string matricula)
+        public bool adicionarViaturaUtilitaria(string matricula)
         {
             Viatura v = encontrarViatura(matricula);
             if(v == null)
             {
-                v = new Viatura(matricula);
-                listaViatura.Add(v);
-                return;
+                v = new Utilitario(matricula);
+                Utilitario u = new Utilitario(matricula);
+                listaViatura.Add(u);
+                return true;
             }
-            Console.WriteLine("Viatura já existe");
+            return false;
         }
-        public void adicionarViaturaLuxo(string matricula, decimal taxa)
+        public bool adicionarViaturaLuxo(string matricula, decimal taxa)
         {
             Viatura v = encontrarViatura(matricula);
             if (v == null)
             {
-                v = new Viatura(matricula);
+                v = new Luxo(matricula, taxa);
                 listaViatura.Add(v);
-                return;
+                return true;
             }
-            Console.WriteLine("Viatura já existe");
+            return false;
         }
         public Viatura encontrarViatura(string matricula)
         {
@@ -102,23 +104,24 @@ namespace trabalho
                 v.monstarViatura();
             }
         }
-        public void registrarAluguer(string carta, string matricula, int dias)
+        public int registrarAluguer(string carta, string matricula, int dias)
         {
             Cliente c = encontrarCliente(carta);
             if(c == null)
             {
                 Console.WriteLine("Cliente não existe.");
-                return;
+                return -1;
             }
             Viatura v = encontrarViatura(matricula);
             if(v == null)
             {
                 Console.WriteLine("Viatura não existe.");
-                return;
+                return -1;
             } 
-            Aluguer a = new Aluguer(dias, 19, c, v);
+            Aluguer a = new Aluguer(dias, v.getPreco(), c, v);
             c.adicionarAluguer(a);
             v.adicionarAluguer(a);
+            return a.getID();
         }
         public void listarAlugueresCliente(string carta)
         {
@@ -127,6 +130,7 @@ namespace trabalho
                 if (carta == c.getCarta())
                 {
                     c.monstrarAlugueres();
+                    Console.WriteLine("------------------------------");
                 }   
             }
         }
@@ -136,7 +140,8 @@ namespace trabalho
             {
                 if (matricula == v.getMatricula())
                 {
-                    v.monstrarAlugueres();
+                    v.listarAlugueres();
+                    Console.WriteLine("------------------------------");
                 }
             }
         }
@@ -160,6 +165,13 @@ namespace trabalho
                 }
             }
             Console.WriteLine($"Total Fatura: {total}");
+        }
+        public void monstrarTop(int n)
+        {
+            foreach (Viatura v in listaViatura)
+            {
+                
+            }
         }
     }
 }
