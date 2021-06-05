@@ -82,13 +82,13 @@ namespace trabalho
                     string carta = Console.ReadLine();
                     bool resp = a.adicionarCliente(nome, carta);
                     if (!resp)
-                        {
-                            corMensagem("ERRO!!! Não foi possível adicionar Cliente", "vermelho");
-                        }
-                        else
-                        {
-                            corMensagem($"Cliente «{nome}» adicionada com sucesso:)", "verde");
-                        }
+                    {
+                        corMensagem("ERRO!!! Não foi possível adicionar Cliente", "vermelho");
+                    }
+                    else
+                    {
+                        corMensagem($"Cliente «{nome}» adicionada com sucesso:)", "verde");
+                    }
                 }
                 else if (op == 3)
                 {
@@ -111,7 +111,7 @@ namespace trabalho
                 {
                     Console.Clear();
                     titulo("Monstrar");
-                    header("Lista de Cliente", "Lista de Viatura", "Alugueis","Cliente", "Veiculo");
+                    header("Lista de Cliente", "Lista de Viatura", "Alugueis");
                     op = leiaOp(3);
                     if (op == 1)
                     {
@@ -127,35 +127,37 @@ namespace trabalho
                         linha();
                         a.listarViatura();
                     }
-                    else if(op == 3)
-                    {
-                
-                    }
-                    if (op == 1)
+                    else if (op == 3)
                     {
                         Console.Clear();
-                        titulo("Monstar Aluguer de Cliente");
-                        Console.Write("Carta: ");
-                        string carta = Console.ReadLine();
-                        a.listarAlugueresCliente(carta);
+                        titulo("Monstrar Alugueis");
+                        header("Cliente", "Veiculo");
+                        op = leiaOp(3);
+                        if (op == 1)
+                        {
+                            Console.Clear();
+                            titulo("Monstar Aluguer de Cliente");
+                            Console.Write("Carta: ");
+                            string carta = Console.ReadLine();
+                            a.listarAlugueresCliente(carta);
+                        }
+                        else if (op == 2)
+                        {
+                            Console.Clear();
+                            titulo("Monstar Aluguer de Viatura");
+                            Console.Write("Carta: ");
+                            string matricula = Console.ReadLine();
+                            a.listarAlugueresViatura(matricula);
+                        }
                     }
-                    else if (op == 2)
-                    {
-                        Console.Clear();
-                        titulo("Monstar Aluguer de Viatura");
-                        Console.Write("Carta: ");
-                        string matricula = Console.ReadLine();
-                        a.listarAlugueresViatura(matricula);
-                    }
-                    
                 }
                 else if (op == 5)
                 {
                     Console.Clear();
-                    titulo("Monstar");
-                    header("Total Faturado", "Total Faturado por Veiculo", "Top");
+                    titulo("Monstrar");
+                    header("Lista de Cliente", "Lista de Viatura", "Alugueis");
                     op = leiaOp(3);
-                    else if (op == 1)
+                    if (op == 1)
                     {
                         Console.Clear();
                         titulo("Total Faturado");
@@ -240,7 +242,7 @@ namespace trabalho
                 {
                     return true;
                 }
-                else if(res == 'N')
+                else if (res == 'N')
                 {
                     return false;
                 }
@@ -252,33 +254,34 @@ namespace trabalho
         }
         static void corMensagem(string msg, string cor)
         {
-            if(cor == "azul")
+            if (cor == "azul")
             {
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine(msg);
                 Console.ResetColor();
             }
-            else if(cor == "vermelho")
+            else if (cor == "vermelho")
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(msg);
                 Console.ResetColor();
             }
-            else if(cor == "verde")
+            else if (cor == "verde")
             {
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine(msg);
                 Console.ResetColor();
             }
         }
-        static void center(string teste, int num){
+        static void center(string teste, int num)
+        {
             int total, esquerda, direita;
             string test = "";
             total = num - teste.Length;
             direita = (total / 2) + teste.Length;
             esquerda = num - direita;
             Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("{0}{1}", teste.PadLeft(direita, ' '), test.PadRight(esquerda-1, ' '));
+            Console.WriteLine("{0}{1}", teste.PadLeft(direita, ' '), test.PadRight(esquerda - 1, ' '));
             Console.ResetColor();
         }
     }
