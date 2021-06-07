@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\danin\\OneDrive\\Documents\\TI\\programação\\trabalho\\trabalho.csproj",
+      "projectUniqueName": "C:\\Users\\danin\\OneDrive\\Documents\\GitHub\\trabalho-CSharp\\trabalho.csproj",
       "projectName": "trabalho",
-      "projectPath": "C:\\Users\\danin\\OneDrive\\Documents\\TI\\programação\\trabalho\\trabalho.csproj",
+      "projectPath": "C:\\Users\\danin\\OneDrive\\Documents\\GitHub\\trabalho-CSharp\\trabalho.csproj",
       "packagesPath": "C:\\Users\\danin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\danin\\OneDrive\\Documents\\TI\\programação\\trabalho\\obj\\",
+      "outputPath": "C:\\Users\\danin\\OneDrive\\Documents\\GitHub\\trabalho-CSharp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\danin\\AppData\\Roaming\\NuGet\\NuGet.Config"

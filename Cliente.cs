@@ -34,5 +34,17 @@ namespace trabalho
                 Console.WriteLine("------------------------------");
             }
         }
+        public int getMaiorAluguer(string carta)
+        {
+            int total = 0;
+            foreach (Aluguer a in listaAluguer)
+            {
+                if (a.getCarta() == carta)
+                {
+                    total++;
+                }
+            }
+            return total;
+        }
     }
 }

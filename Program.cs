@@ -18,8 +18,9 @@ namespace trabalho
             a.adicionarViaturaUtilitaria("U2");
             a.adicionarViaturaUtilitaria("U3");
             a.adicionarViaturaUtilitaria("U4");
-            a.registrarAluguer("C2", "L1", 4);
+            a.registrarAluguer("C2", "U1", 4);
             a.registrarAluguer("C1", "L1", 2);
+            a.registrarAluguer("C2", "L1", 2);
             a.registrarAluguer("C3", "L3", 2);
 
             while (true)
@@ -40,7 +41,7 @@ namespace trabalho
                         titulo("Adicionar Veiculo Luxo");
                         linha();
                         Console.Write("Matrícula: ");
-                        string matricula = Console.ReadLine();
+                        string matricula = (Console.ReadLine()).ToUpper();
                         Console.Write("Taxa: ");
                         decimal taxa = Convert.ToDecimal(Console.ReadLine());
                         bool resp = a.adicionarViaturaLuxo(matricula, taxa);
@@ -59,7 +60,7 @@ namespace trabalho
                         titulo("Adicionar Veiculo Utilitaria");
                         linha();
                         Console.Write("Matrícula: ");
-                        string matricula = Console.ReadLine();
+                        string matricula = (Console.ReadLine()).ToUpper();
                         bool resp = a.adicionarViaturaUtilitaria(matricula);
                         if (!resp)
                         {
@@ -77,9 +78,9 @@ namespace trabalho
                     titulo("Adicionar Cliente");
                     linha();
                     Console.Write("Nome: ");
-                    string nome = Console.ReadLine();
+                    string nome = (Console.ReadLine()).ToUpper();
                     Console.Write("Carta: ");
-                    string carta = Console.ReadLine();
+                    string carta = (Console.ReadLine()).ToUpper();
                     bool resp = a.adicionarCliente(nome, carta);
                     if (!resp)
                     {
@@ -96,9 +97,9 @@ namespace trabalho
                     titulo("Registrar Aluguer");
                     linha();
                     Console.Write("Carta: ");
-                    string carta = Console.ReadLine();
+                    string carta = (Console.ReadLine()).ToUpper();
                     Console.Write("Matricula: ");
-                    string matricula = Console.ReadLine();
+                    string matricula = (Console.ReadLine()).ToUpper();
                     Console.Write("Dias: ");
                     int dias = Convert.ToInt32(Console.ReadLine());
                     int resp = a.registrarAluguer(carta, matricula, dias);
@@ -137,16 +138,18 @@ namespace trabalho
                         {
                             Console.Clear();
                             titulo("Monstar Aluguer de Cliente");
+                            linha();
                             Console.Write("Carta: ");
-                            string carta = Console.ReadLine();
+                            string carta = (Console.ReadLine()).ToUpper();
                             a.listarAlugueresCliente(carta);
                         }
                         else if (op == 2)
                         {
                             Console.Clear();
                             titulo("Monstar Aluguer de Viatura");
-                            Console.Write("Carta: ");
-                            string matricula = Console.ReadLine();
+                            linha();
+                            Console.Write("Matrícula: ");
+                            string matricula = (Console.ReadLine()).ToUpper();
                             a.listarAlugueresViatura(matricula);
                         }
                     }
@@ -170,12 +173,14 @@ namespace trabalho
                         titulo("Total Faturado por Veiculo");
                         linha();
                         Console.Write("Matricula: ");
-                        string matricula = Console.ReadLine();
+                        string matricula = (Console.ReadLine()).ToUpper();
                         a.monstrarTotalFaturadoViatura(matricula);
                     }
                     else if (op == 3)
                     {
                         Console.Clear();
+                        titulo("Monstrar Top");
+                        linha();
                         Console.Write("Número: ");
                         int n = Convert.ToInt32(Console.ReadLine());
                         if (n > 0)
@@ -196,6 +201,8 @@ namespace trabalho
                 }
                 Console.Clear();
             }
+            titulo("FIM DO PROGRAMA");
+            linha();
         }
         static void linha()
         {
@@ -235,7 +242,7 @@ namespace trabalho
         {
             while (true)
             {
-                Console.WriteLine("Quer Continuar? [S/N] ");
+                Console.Write("Quer Continuar? [S/N] ");
                 string resp = (Console.ReadLine()).ToUpper();
                 char res = resp[0];
                 if (res == 'S')

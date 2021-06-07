@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 namespace trabalho
 {
-    abstract public class Viatura
+    public class Viatura
     {
         public List<Aluguer> listaAluguer;
         string matricula;
@@ -12,7 +12,8 @@ namespace trabalho
             this.matricula = matricula;
             listaAluguer = new List<Aluguer>();
         }
-        public abstract void adicionarAluguer(Aluguer a);
+        public virtual void adicionarAluguer(Aluguer a)
+        {}
         public void definirPreco(decimal preco)
         {
             precoDia = preco;
@@ -24,7 +25,7 @@ namespace trabalho
         public void monstarViatura()
         {
             Console.WriteLine($"Matrícula: {this.matricula}");
-            Console.WriteLine($"Preço: {precoDia}");
+            Console.WriteLine($"Preço Dia: {precoDia}$");
         }
         public void listarAlugueres()
         {
@@ -46,6 +47,30 @@ namespace trabalho
         public virtual decimal getPreco()
         {
             return precoDia;
+        }
+        public decimal getTotal(string matricula)
+        {
+            decimal total = 0;
+            foreach (Aluguer a in listaAluguer)
+            {
+                if(a.getMatricula() == matricula)
+                {
+                    total += a.getValor();
+                }
+            }
+            return total;
+        }
+        public int getQuant(string matricula)
+        {
+            int total = 0;
+            foreach (Aluguer a in listaAluguer)
+            {
+                if(a.getMatricula() == matricula)
+                {
+                    total++;
+                }
+            }
+            return total;
         }
     }
 }

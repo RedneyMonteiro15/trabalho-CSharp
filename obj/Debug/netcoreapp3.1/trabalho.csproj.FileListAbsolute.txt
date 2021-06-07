@@ -11,3 +11,16 @@ C:\Users\danin\OneDrive\Documents\TI\programação\trabalho\obj\Debug\netcoreapp
 C:\Users\danin\OneDrive\Documents\TI\programação\trabalho\obj\Debug\netcoreapp3.1\trabalho.dll
 C:\Users\danin\OneDrive\Documents\TI\programação\trabalho\obj\Debug\netcoreapp3.1\trabalho.pdb
 C:\Users\danin\OneDrive\Documents\TI\programação\trabalho\obj\Debug\netcoreapp3.1\trabalho.genruntimeconfig.cache
+C:\Users\danin\OneDrive\Documents\GitHub\trabalho-CSharp\bin\Debug\netcoreapp3.1\trabalho.exe
+C:\Users\danin\OneDrive\Documents\GitHub\trabalho-CSharp\bin\Debug\netcoreapp3.1\trabalho.deps.json
+C:\Users\danin\OneDrive\Documents\GitHub\trabalho-CSharp\bin\Debug\netcoreapp3.1\trabalho.runtimeconfig.json
+C:\Users\danin\OneDrive\Documents\GitHub\trabalho-CSharp\bin\Debug\netcoreapp3.1\trabalho.runtimeconfig.dev.json
+C:\Users\danin\OneDrive\Documents\GitHub\trabalho-CSharp\bin\Debug\netcoreapp3.1\trabalho.dll
+C:\Users\danin\OneDrive\Documents\GitHub\trabalho-CSharp\bin\Debug\netcoreapp3.1\trabalho.pdb
+C:\Users\danin\OneDrive\Documents\GitHub\trabalho-CSharp\obj\Debug\netcoreapp3.1\trabalho.csprojAssemblyReference.cache
+C:\Users\danin\OneDrive\Documents\GitHub\trabalho-CSharp\obj\Debug\netcoreapp3.1\trabalho.AssemblyInfoInputs.cache
+C:\Users\danin\OneDrive\Documents\GitHub\trabalho-CSharp\obj\Debug\netcoreapp3.1\trabalho.AssemblyInfo.cs
+C:\Users\danin\OneDrive\Documents\GitHub\trabalho-CSharp\obj\Debug\netcoreapp3.1\trabalho.csproj.CoreCompileInputs.cache
+C:\Users\danin\OneDrive\Documents\GitHub\trabalho-CSharp\obj\Debug\netcoreapp3.1\trabalho.dll
+C:\Users\danin\OneDrive\Documents\GitHub\trabalho-CSharp\obj\Debug\netcoreapp3.1\trabalho.pdb
+C:\Users\danin\OneDrive\Documents\GitHub\trabalho-CSharp\obj\Debug\netcoreapp3.1\trabalho.genruntimeconfig.cache

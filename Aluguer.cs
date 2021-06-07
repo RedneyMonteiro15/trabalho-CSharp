@@ -31,5 +31,13 @@ namespace trabalho
         {
             return this.id;
         }
+        public string getMatricula()
+        {
+            return v.getMatricula();
+        }
+        public string getCarta()
+        {
+            return c.getCarta();
+        }
     }
 }
