@@ -7,11 +7,11 @@ namespace trabalho
         {}
         public override void adicionarAluguer(Aluguer a)
         {
-            base.listaAluguer.Add(a);
+            base.setAluguer(a);
         }
         public override decimal getPreco()
         {
-            return base.getPreco();
+            return base.getPrecoDia();
         }
     }
 }

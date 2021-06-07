@@ -178,15 +178,22 @@ namespace trabalho
             List<decimal> listaTotal = new List<decimal>();
             List<int> listaQuant = new List<int>();
             List<int> listaMaiorCliente = new List<int>();
+            List<decimal> listaMaiorTaxa = new List<decimal>();
             decimal max;
             foreach (Viatura v in listaViatura)
             {
                 listaTotal.Add(v.getTotal(v.getMatricula()));
                 listaQuant.Add(v.getQuant(v.getMatricula()));
+                if (v.getPrecoDia() != v.getPreco())
+                {
+                    listaMaiorTaxa.Add(v.getPreco());
+                }
                 listaTotal.Sort();
                 listaQuant.Sort();
+                listaMaiorTaxa.Sort();
                 listaTotal.Reverse();
                 listaQuant.Reverse();
+                listaMaiorTaxa.Reverse();
             }
             foreach (Cliente c in listaClientes)
             {
@@ -259,6 +266,28 @@ namespace trabalho
                     c.monstrarCliente();
                     Console.WriteLine($"Total: {max}");
                     Console.WriteLine("------------------------------");
+                    break;
+                }
+            }
+            if (n > (listaMaiorTaxa.Count))
+            {
+                n = listaMaiorTaxa.Count;
+            }
+            Thread.Sleep(750);
+            titulo("Viatura com maior Taxa");
+            linha();
+            for (int i = 0; i < n; i++)
+            {
+                max = listaMaiorTaxa[i];
+                foreach (Viatura v in listaViatura)
+                {
+                    if (!(v.getPreco() == max))
+                    {
+                        continue;
+                    }
+                    Thread.Sleep(500);
+                    v.monstarViatura();
+                    linha();
                     break;
                 }
             }

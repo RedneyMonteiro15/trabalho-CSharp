@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 namespace trabalho
 {
-    public class Viatura
+    public abstract class Viatura
     {
-        public List<Aluguer> listaAluguer;
+        List<Aluguer> listaAluguer;
         string matricula;
         static decimal precoDia;
         public Viatura(string matricula)
@@ -12,8 +12,11 @@ namespace trabalho
             this.matricula = matricula;
             listaAluguer = new List<Aluguer>();
         }
-        public virtual void adicionarAluguer(Aluguer a)
-        {}
+        public abstract void adicionarAluguer(Aluguer a);
+        public void setAluguer(Aluguer a)
+        {
+            listaAluguer.Add(a);
+        }
         public void definirPreco(decimal preco)
         {
             precoDia = preco;
@@ -22,7 +25,7 @@ namespace trabalho
         {
             return this.matricula;
         }
-        public void monstarViatura()
+        public virtual void monstarViatura()
         {
             Console.WriteLine($"Matrícula: {this.matricula}");
             Console.WriteLine($"Preço Dia: {precoDia}$");
@@ -44,7 +47,8 @@ namespace trabalho
             }
             return total;
         }
-        public virtual decimal getPreco()
+        public abstract decimal getPreco();
+        public decimal getPrecoDia()
         {
             return precoDia;
         }

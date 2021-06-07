@@ -1,3 +1,4 @@
+using System;
 namespace trabalho
 {
     public class Luxo : Viatura
@@ -9,11 +10,17 @@ namespace trabalho
         }
         public override void adicionarAluguer(Aluguer a)
         {
-            base.listaAluguer.Add(a);
+            base.setAluguer(a);
         }
         public override decimal getPreco()
         {
-            return (base.getPreco() + (base.getPreco() * this.taxa / 100));
+            
+            return (base.getPrecoDia() + (base.getPrecoDia() * this.taxa / 100));
         }
+        public override void monstarViatura()
+        {
+            base.monstarViatura();
+            Console.WriteLine($"Taxa: {this.taxa}");
+        } 
     }
 }

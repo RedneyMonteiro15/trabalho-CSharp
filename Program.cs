@@ -19,9 +19,10 @@ namespace trabalho
             a.adicionarViaturaUtilitaria("U3");
             a.adicionarViaturaUtilitaria("U4");
             a.registrarAluguer("C2", "U1", 4);
-            a.registrarAluguer("C1", "L1", 2);
+            a.registrarAluguer("C1", "L1", 4);
             a.registrarAluguer("C2", "L1", 2);
             a.registrarAluguer("C3", "L3", 2);
+
             
 
             while (true)
@@ -52,7 +53,7 @@ namespace trabalho
                         }
                         else
                         {
-                            corMensagem("Viatura adicionada com sucesso:)", "verde");
+                            corMensagem($"Viatura «{matricula}» adicionada com sucesso:)", "verde");
                         }
                     }
                     else if (op == 2)
