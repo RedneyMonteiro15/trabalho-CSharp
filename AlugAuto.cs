@@ -182,8 +182,14 @@ namespace trabalho
             decimal max;
             foreach (Viatura v in listaViatura)
             {
-                listaTotal.Add(v.getTotal(v.getMatricula()));
-                listaQuant.Add(v.getQuant(v.getMatricula()));
+                if (v.getTotal(v.getMatricula()) != 0)
+                {
+                    listaTotal.Add(v.getTotal(v.getMatricula()));
+                }
+                if (v.getQuant(v.getMatricula()) != 0)
+                {
+                    listaQuant.Add(v.getQuant(v.getMatricula()));
+                }
                 if (v.getPrecoDia() != v.getPreco())
                 {
                     listaMaiorTaxa.Add(v.getPreco());
@@ -197,7 +203,10 @@ namespace trabalho
             }
             foreach (Cliente c in listaClientes)
             {
-                listaMaiorCliente.Add(c.getMaiorAluguer(c.getCarta()));
+                if (c.getMaiorAluguer(c.getCarta()) != 0)
+                {
+                    listaMaiorCliente.Add(c.getMaiorAluguer(c.getCarta()));   
+                }
                 listaMaiorCliente.Sort();
                 listaMaiorCliente.Reverse();
             }
