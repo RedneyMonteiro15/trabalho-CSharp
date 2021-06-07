@@ -44,7 +44,7 @@ namespace trabalho
                     total++;
                 }
             }
-            return total;
+            return total; 
         }
     }
 }

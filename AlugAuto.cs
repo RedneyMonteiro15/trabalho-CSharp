@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace trabalho
 {
@@ -46,7 +47,9 @@ namespace trabalho
         {
             foreach (Cliente c in listaClientes)
             {
+                Thread.Sleep(500);
                 c.monstrarCliente();
+                linha();
             }
         }
         public void definirPreco(decimal preco)
@@ -101,7 +104,9 @@ namespace trabalho
         {
             foreach (Viatura v in listaViatura)
             {
+                Thread.Sleep(500);
                 v.monstarViatura();
+                linha();
             }
         }
         public int registrarAluguer(string carta, string matricula, int dias)
@@ -127,10 +132,11 @@ namespace trabalho
         {
             foreach (Cliente c in listaClientes)
             {
+                Thread.Sleep(750);
                 if (carta == c.getCarta())
                 {
                     c.monstrarAlugueres();
-                    Console.WriteLine("------------------------------");
+                    linha();
                 }
             }
         }
@@ -138,10 +144,11 @@ namespace trabalho
         {
             foreach (Viatura v in listaViatura)
             {
+                Thread.Sleep(750);
                 if (matricula == v.getMatricula())
                 {
                     v.listarAlugueres();
-                    Console.WriteLine("------------------------------");
+                    linha();
                 }
             }
         }
@@ -202,6 +209,7 @@ namespace trabalho
                     {
                         continue;
                     }
+                    Thread.Sleep(500);
                     v.monstarViatura();
                     Console.WriteLine($"Total: {max}$");
                     Console.WriteLine("------------------------------");
@@ -212,6 +220,7 @@ namespace trabalho
             {
                 n = listaQuant.Count;
             }
+            Thread.Sleep(750);
             titulo("Veiculos mais Alugados");
             linha();
             for (int i = 0; i < n; i++)
@@ -223,6 +232,7 @@ namespace trabalho
                     {
                         continue;
                     }
+                    Thread.Sleep(500);
                     v.monstarViatura();
                     Console.WriteLine($"Total: {max}");
                     Console.WriteLine("------------------------------");
@@ -233,7 +243,8 @@ namespace trabalho
             {
                 n = listaMaiorCliente.Count;
             }
-            titulo("Veiculos mais Alugados");
+            Thread.Sleep(750);
+            titulo("Clientes com mais Alugueis");
             linha();
             for (int i = 0; i < n; i++)
             {
@@ -244,6 +255,7 @@ namespace trabalho
                     {
                         continue;
                     }
+                    Thread.Sleep(500);
                     c.monstrarCliente();
                     Console.WriteLine($"Total: {max}");
                     Console.WriteLine("------------------------------");

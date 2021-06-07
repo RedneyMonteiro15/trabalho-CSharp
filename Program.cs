@@ -22,6 +22,7 @@ namespace trabalho
             a.registrarAluguer("C1", "L1", 2);
             a.registrarAluguer("C2", "L1", 2);
             a.registrarAluguer("C3", "L3", 2);
+            
 
             while (true)
             {
@@ -158,7 +159,7 @@ namespace trabalho
                 {
                     Console.Clear();
                     titulo("Monstrar");
-                    header("Lista de Cliente", "Lista de Viatura", "Alugueis");
+                    header("Total Fatudo", "Total Fatudo por Veículo", "Top n");
                     op = leiaOp(3);
                     if (op == 1)
                     {
@@ -179,7 +180,7 @@ namespace trabalho
                     else if (op == 3)
                     {
                         Console.Clear();
-                        titulo("Monstrar Top");
+                        titulo("Monstrar Top n");
                         linha();
                         Console.Write("Número: ");
                         int n = Convert.ToInt32(Console.ReadLine());
