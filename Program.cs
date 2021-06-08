@@ -21,9 +21,7 @@ namespace trabalho
             a.registrarAluguer("C2", "U1", 4);
             a.registrarAluguer("C1", "L1", 4);
             a.registrarAluguer("C2", "L1", 2);
-            a.registrarAluguer("C3", "L3", 2);
-
-            
+            a.registrarAluguer("C3", "L3", 2);     
 
             while (true)
             {
@@ -143,6 +141,7 @@ namespace trabalho
                             linha();
                             Console.Write("Carta: ");
                             string carta = (Console.ReadLine()).ToUpper();
+                            linha();
                             a.listarAlugueresCliente(carta);
                         }
                         else if (op == 2)
@@ -152,6 +151,7 @@ namespace trabalho
                             linha();
                             Console.Write("Matrícula: ");
                             string matricula = (Console.ReadLine()).ToUpper();
+                            linha();
                             a.listarAlugueresViatura(matricula);
                         }
                     }

@@ -18,7 +18,7 @@ namespace trabalho
             }
             else
             {
-                definirPreco(5);
+                definirPreco(10);
             }
         }
         public bool adicionarCliente(string nome, string carta)
