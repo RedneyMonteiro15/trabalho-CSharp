@@ -20,7 +20,7 @@ namespace trabalho
         public override void monstarViatura()
         {
             base.monstarViatura();
-            Console.WriteLine($"Taxa: {this.taxa}");
+            Console.WriteLine($"Taxa: {this.taxa}%");
         } 
     }
 }
