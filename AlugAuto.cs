@@ -48,8 +48,8 @@ namespace trabalho
             foreach (Cliente c in listaClientes)
             {
                 Thread.Sleep(500);
-                c.monstrarCliente();
                 linha();
+                c.monstrarCliente(); 
             }
         }
         public void definirPreco(decimal preco)
@@ -105,8 +105,8 @@ namespace trabalho
             foreach (Viatura v in listaViatura)
             {
                 Thread.Sleep(500);
-                v.monstarViatura();
                 linha();
+                v.monstarViatura();
             }
         }
         public int registrarAluguer(string carta, string matricula, int dias)
@@ -114,13 +114,13 @@ namespace trabalho
             Cliente c = encontrarCliente(carta);
             if (c == null)
             {
-                Console.WriteLine("Cliente não existe.");
+                corMensagem("Cliente não existe.", "vermelho");
                 return -1;
             }
             Viatura v = encontrarViatura(matricula);
             if (v == null)
             {
-                Console.WriteLine("Viatura não existe.");
+                corMensagem("Viatura não existe.", "vermelho");
                 return -1;
             }
             Aluguer a = new Aluguer(dias, v.getPreco(), c, v);
@@ -130,27 +130,13 @@ namespace trabalho
         }
         public void listarAlugueresCliente(string carta)
         {
-            foreach (Cliente c in listaClientes)
-            {
-                Thread.Sleep(750);
-                if (carta == c.getCarta())
-                {
-                    c.monstrarAlugueres();
-                    linha();
-                }
-            }
+            Cliente c = encontrarCliente(carta);
+            c.monstrarAlugueres();
         }
         public void listarAlugueresViatura(string matricula)
         {
-            foreach (Viatura v in listaViatura)
-            {
-                Thread.Sleep(750);
-                if (matricula == v.getMatricula())
-                {
-                    v.listarAlugueres();
-                    linha();
-                }
-            }
+            Viatura v = encontrarViatura(matricula);
+            v.listarAlugueres();
         }
         public void monstrarTotalFaturado()
         {
@@ -159,7 +145,7 @@ namespace trabalho
             {
                 total += v.totalFaturado();
             }
-            Console.WriteLine($"Total Faturado: {total}");
+            Console.WriteLine($"Total Faturado: {total}$");
         }
         public void monstrarTotalFaturadoViatura(string matricula)
         {
@@ -171,7 +157,7 @@ namespace trabalho
                     total += v.totalFaturado();
                 }
             }
-            Console.WriteLine($"Total Fatura: {total}");
+            Console.WriteLine($"Total Fatura: {total}$");
         }
         public void monstrarTop(int n)
         {

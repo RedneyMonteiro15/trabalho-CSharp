@@ -16,12 +16,20 @@ namespace trabalho
             this.c = c;
             this.v = v;
         }
-        public void monstrarAluguer()
+        public void monstrarAluguer(int op)
         {
             Console.WriteLine($"ID: {id}");
             Console.WriteLine($"Dias: {this.dias}");
             Console.WriteLine($"Valor: {this.valor}$");
-            Console.WriteLine($"Viatura: {this.v.getMatricula()}");
+            if (op == 1)
+            {
+                Console.WriteLine($"Viatura: {this.v.getMatricula()}");
+            }
+            else if(op == 2)
+            {
+                Console.WriteLine($"Cliente: {this.getCarta()}");
+            }
+            
         }
         public decimal getValor()
         {

@@ -30,8 +30,8 @@ namespace trabalho
         {
             foreach (Aluguer a in listaAluguer)
             {
-                a.monstrarAluguer();
                 Console.WriteLine("------------------------------");
+                a.monstrarAluguer(1);
             }
         }
         public int getMaiorAluguer(string carta)

@@ -11,17 +11,18 @@ namespace trabalho
             a.adicionarCliente("Taís", "C2");
             a.adicionarCliente("Kiki", "C3");
             a.adicionarCliente("Pedro", "C4");
-            a.adicionarViaturaLuxo("L1", 10);
+            a.adicionarViaturaLuxo("L1", 20);
             a.adicionarViaturaLuxo("L2", 30);
-            a.adicionarViaturaLuxo("L3", 20);
+            a.adicionarViaturaLuxo("L3", 10);
             a.adicionarViaturaUtilitaria("U1");
             a.adicionarViaturaUtilitaria("U2");
             a.adicionarViaturaUtilitaria("U3");
             a.adicionarViaturaUtilitaria("U4");
             a.registrarAluguer("C2", "U1", 4);
-            a.registrarAluguer("C1", "L1", 4);
+            a.registrarAluguer("C1", "L1", 3);
             a.registrarAluguer("C2", "L1", 2);
-            a.registrarAluguer("C3", "L3", 2);     
+            a.registrarAluguer("C3", "L3", 2); 
+            a.registrarAluguer("C2", "L2", 6);    
 
             while (true)
             {
@@ -118,14 +119,12 @@ namespace trabalho
                     {
                         Console.Clear();
                         titulo("Lista de Cliente");
-                        linha();
                         a.listarCliente();
                     }
                     else if (op == 2)
                     {
                         Console.Clear();
                         titulo("Lista de Viatura");
-                        linha();
                         a.listarViatura();
                     }
                     else if (op == 3)
@@ -140,8 +139,7 @@ namespace trabalho
                             titulo("Monstar Aluguer de Cliente");
                             linha();
                             Console.Write("Carta: ");
-                            string carta = (Console.ReadLine()).ToUpper();
-                            linha();
+                            string carta = (Console.ReadLine()).ToUpper();  
                             a.listarAlugueresCliente(carta);
                         }
                         else if (op == 2)
@@ -151,7 +149,6 @@ namespace trabalho
                             linha();
                             Console.Write("Matrícula: ");
                             string matricula = (Console.ReadLine()).ToUpper();
-                            linha();
                             a.listarAlugueresViatura(matricula);
                         }
                     }
