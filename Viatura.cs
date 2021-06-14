@@ -52,29 +52,18 @@ namespace trabalho
         {
             return precoDia;
         }
-        public decimal getTotal(string matricula)
+        public decimal getTotal()
         {
             decimal total = 0;
             foreach (Aluguer a in listaAluguer)
             {
-                if(a.getMatricula() == matricula)
-                {
-                    total += a.getValor();
-                }
+                total += a.getValor();
             }
             return total;
         }
-        public int getQuant(string matricula)
+        public int getQuant()
         {
-            int total = 0;
-            foreach (Aluguer a in listaAluguer)
-            {
-                if(a.getMatricula() == matricula)
-                {
-                    total++;
-                }
-            }
-            return total;
+            return listaAluguer.Count;
         }
         public void setPrecoDia(decimal preco)
         {

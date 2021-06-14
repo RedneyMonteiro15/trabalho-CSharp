@@ -54,7 +54,7 @@ namespace trabalho
         }
         public void definirPreco(decimal preco)
         {
-            Viatura v = new Utilitario("u");
+            Viatura v = new Utilitario(null);
             v.setPrecoDia(preco);
 
         }
@@ -169,13 +169,13 @@ namespace trabalho
             decimal max;
             foreach (Viatura v in listaViatura)
             {
-                if (v.getTotal(v.getMatricula()) != 0)
+                if (v.getTotal() != 0)
                 {
-                    listaTotal.Add(v.getTotal(v.getMatricula()));
+                    listaTotal.Add(v.getTotal());
                 }
-                if (v.getQuant(v.getMatricula()) != 0)
+                if (v.getQuant() != 0)
                 {
-                    listaQuant.Add(v.getQuant(v.getMatricula()));
+                    listaQuant.Add(v.getQuant());
                 }
                 if (v.getPrecoDia() != v.getPreco())
                 {
@@ -190,9 +190,9 @@ namespace trabalho
             }
             foreach (Cliente c in listaClientes)
             {
-                if (c.getMaiorAluguer(c.getCarta()) != 0)
+                if (c.getMaiorAluguer() != 0)
                 {
-                    listaMaiorCliente.Add(c.getMaiorAluguer(c.getCarta()));   
+                    listaMaiorCliente.Add(c.getMaiorAluguer());   
                 }
                 listaMaiorCliente.Sort();
                 listaMaiorCliente.Reverse();
@@ -208,7 +208,7 @@ namespace trabalho
                 max = listaTotal[i];
                 foreach (Viatura v in listaViatura)
                 {
-                    if (!(v.getTotal(v.getMatricula()) == max))
+                    if (!(v.getTotal() == max))
                     {
                         continue;
                     }
@@ -231,7 +231,7 @@ namespace trabalho
                 max = listaQuant[i];
                 foreach (Viatura v in listaViatura)
                 {
-                    if (!(v.getQuant(v.getMatricula()) == max))
+                    if (!(v.getQuant() == max))
                     {
                         continue;
                     }
@@ -254,7 +254,7 @@ namespace trabalho
                 max = listaMaiorCliente[i];
                 foreach (Cliente c in listaClientes)
                 {
-                    if (!(c.getMaiorAluguer(c.getCarta()) == max))
+                    if (!(c.getMaiorAluguer() == max))
                     {
                         continue;
                     }

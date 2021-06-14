@@ -19,8 +19,8 @@ namespace trabalho
         }
         public void monstrarCliente()
         {
-            Console.WriteLine($"Carta: {this.carta}");
-            Console.WriteLine($"Nome: {this.nome}");
+            Console.WriteLine($"Carta: {carta}");
+            Console.WriteLine($"Nome: {nome}");
         }
         public void adicionarAluguer(Aluguer a)
         {
@@ -34,17 +34,9 @@ namespace trabalho
                 a.monstrarAluguer(1);
             }
         }
-        public int getMaiorAluguer(string carta)
+        public int getMaiorAluguer()
         {
-            int total = 0;
-            foreach (Aluguer a in listaAluguer)
-            {
-                if (a.getCarta() == carta)
-                {
-                    total++;
-                }
-            }
-            return total; 
+            return listaAluguer.Count; 
         }
     }
 }

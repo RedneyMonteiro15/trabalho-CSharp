@@ -23,9 +23,7 @@ namespace trabalho
             a.registrarAluguer("C1", "L1", 4);
             a.registrarAluguer("C2", "L2", 2);
             a.registrarAluguer("C3", "L3", 2); 
-            a.registrarAluguer("C2", "L2", 6);   
-            a.listarAlugueresViatura("L1");
-            a.listarAlugueresViatura("U1");
+            a.registrarAluguer("C2", "L2", 6);  
 
             while (true)
             {
@@ -142,7 +140,8 @@ namespace trabalho
                             titulo("Monstar Aluguer de Cliente");
                             linha();
                             Console.Write("Carta: ");
-                            string carta = (Console.ReadLine()).ToUpper();  
+                            string carta = (Console.ReadLine()).ToUpper();
+                            titulo($"Lista de Aluguer de {carta}");  
                             a.listarAlugueresCliente(carta);
                         }
                         else if (op == 2)
@@ -152,6 +151,7 @@ namespace trabalho
                             linha();
                             Console.Write("Matrícula: ");
                             string matricula = (Console.ReadLine()).ToUpper();
+                            titulo($"Lista de Aluguer de {matricula}"); 
                             a.listarAlugueresViatura(matricula);
                         }
                     }
