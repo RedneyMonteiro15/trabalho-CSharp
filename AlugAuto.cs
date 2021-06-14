@@ -55,7 +55,7 @@ namespace trabalho
         public void definirPreco(decimal preco)
         {
             Viatura v = new Utilitario("u");
-            v.definirPreco(preco);
+            v.setPrecoDia(preco);
 
         }
         public bool garantirPreco(decimal preco)
@@ -83,7 +83,8 @@ namespace trabalho
             Viatura v = encontrarViatura(matricula);
             if (v == null)
             {
-                v = new Luxo(matricula, taxa);
+                v = new Luxo(matricula);
+                v.setTaxa(taxa);
                 listaViatura.Add(v);
                 return true;
             }
@@ -145,7 +146,7 @@ namespace trabalho
             {
                 total += v.totalFaturado();
             }
-            Console.WriteLine($"Total Faturado: {total}$");
+            corMensagem($"Total Faturado: {total}$", "verde");
         }
         public void monstrarTotalFaturadoViatura(string matricula)
         {
@@ -157,7 +158,7 @@ namespace trabalho
                     total += v.totalFaturado();
                 }
             }
-            Console.WriteLine($"Total Fatura: {total}$");
+            corMensagem($"Total Faturado: {total}$", "verde");
         }
         public void monstrarTop(int n)
         {

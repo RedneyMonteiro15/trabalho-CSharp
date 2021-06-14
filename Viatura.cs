@@ -17,7 +17,7 @@ namespace trabalho
         {
             listaAluguer.Add(a);
         }
-        public void definirPreco(decimal preco)
+        public static void definirPreco(decimal preco)
         {
             precoDia = preco;
         }
@@ -76,5 +76,11 @@ namespace trabalho
             }
             return total;
         }
+        public void setPrecoDia(decimal preco)
+        {
+            definirPreco(preco);
+        }
+        public virtual void setTaxa(decimal taxa)
+        {}
     }
 }

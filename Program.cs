@@ -20,17 +20,19 @@ namespace trabalho
             a.adicionarViaturaUtilitaria("U3");
             a.adicionarViaturaUtilitaria("U4");
             a.registrarAluguer("C2", "U1", 4);
-            a.registrarAluguer("C1", "L1", 3);
-            a.registrarAluguer("C2", "L1", 2);
+            a.registrarAluguer("C1", "L1", 4);
+            a.registrarAluguer("C2", "L2", 2);
             a.registrarAluguer("C3", "L3", 2); 
-            a.registrarAluguer("C2", "L2", 6);    
+            a.registrarAluguer("C2", "L2", 6);   
+            a.listarAlugueresViatura("L1");
+            a.listarAlugueresViatura("U1");
 
             while (true)
             {
                 titulo("AlugAuto");
                 int op;
-                header("Adicionar Veiculo", "Adicionar Cliente", "Registrar Aluguer", "Monstrar", "Estatisticas");
-                op = leiaOp(5);
+                header("Adicionar Veiculo", "Adicionar Cliente", "Registrar Aluguer", "Monstrar", "Estatisticas", "Sair");
+                op = leiaOp(6);
                 if (op == 1)
                 {
                     Console.Clear();
@@ -193,6 +195,11 @@ namespace trabalho
                         }
                     }
                 }
+                else if (op == 6)
+                {
+                    break;
+                }
+                
                 linha();
                 bool cont = continuar();
                 if (!cont)

@@ -4,10 +4,8 @@ namespace trabalho
     public class Luxo : Viatura
     {
         decimal taxa;
-        public Luxo(string matricula, decimal taxa) : base(matricula)
-        {
-            this.taxa = taxa;
-        }
+        public Luxo(string matricula) : base(matricula)
+        {}
         public override void adicionarAluguer(Aluguer a)
         {
             base.setAluguer(a);
@@ -20,7 +18,11 @@ namespace trabalho
         public override void monstarViatura()
         {
             base.monstarViatura();
-            Console.WriteLine($"Taxa: {this.taxa}%");
+            Console.WriteLine($"Taxa: {taxa}%");
         } 
+        public override void setTaxa(decimal taxa)
+        {
+            this.taxa = taxa;
+        }
     }
 }
