@@ -7,6 +7,7 @@ namespace trabalho
     {
         static void Main(string[] args)
         {
+            Console.Clear();
             AlugAuto a = new AlugAuto(50);
             a.adicionarCliente("Redney", "C1");
             a.adicionarCliente("Taís", "C2");
@@ -20,10 +21,10 @@ namespace trabalho
             a.adicionarViaturaUtilitaria("U3");
             a.adicionarViaturaUtilitaria("U4");
             a.registrarAluguer("C2", "U1", 4);
-            a.registrarAluguer("C1", "L1", 4);
+            a.registrarAluguer("C1", "U1", 4);
             a.registrarAluguer("C2", "L2", 2);
             a.registrarAluguer("C3", "L3", 2); 
-            a.registrarAluguer("C2", "L2", 6);  
+            a.registrarAluguer("C2", "L2", 6);
 
             while (true)
             {
@@ -49,7 +50,7 @@ namespace trabalho
                         bool resp = a.adicionarViaturaLuxo(matricula, taxa);
                         if (!resp)
                         {
-                            corMensagem("ERRO!!! Não foi possível adicionar Viatura", "vermelho");
+                            corMensagem("ERRO!!! Não foi possível adicionar Viatura:(", "vermelho");
                         }
                         else
                         {
@@ -66,7 +67,7 @@ namespace trabalho
                         bool resp = a.adicionarViaturaUtilitaria(matricula);
                         if (!resp)
                         {
-                            corMensagem("ERRO!!! Não foi possível adicionar Viatura", "vermelho");
+                            corMensagem("ERRO!!! Não foi possível adicionar Viatura:(", "vermelho");
                         }
                         else
                         {
@@ -86,7 +87,7 @@ namespace trabalho
                     bool resp = a.adicionarCliente(nome, carta);
                     if (!resp)
                     {
-                        corMensagem("ERRO!!! Não foi possível adicionar Cliente", "vermelho");
+                        corMensagem("ERRO!!! Não foi possível adicionar Cliente:(", "vermelho");
                     }
                     else
                     {
@@ -107,7 +108,7 @@ namespace trabalho
                     int resp = a.registrarAluguer(carta, matricula, dias);
                     if (resp > 0)
                     {
-                        corMensagem($"Aluguer registrado com sucesso. \nID do aluguer: {resp}", "verde");
+                        corMensagem($"Aluguer registrado com sucesso:) \nID do aluguer: {resp}", "verde");
                     }
                 }
                 else if (op == 4)
@@ -191,7 +192,7 @@ namespace trabalho
                         }
                         else
                         {
-                            corMensagem("Número inválido...", "vermelho");
+                            corMensagem("Número inválido:(", "vermelho");
                         }
                     }
                 }
@@ -237,7 +238,7 @@ namespace trabalho
                 {
                     return n;
                 }
-                corMensagem($"Opção Inválida. Digite um opção entre [1, {i}]", "vermelho");
+                corMensagem($"Opção Inválida:( Digite um opção entre [1, {i}]", "vermelho");
             }
         }
         static void titulo(string txt)
@@ -250,8 +251,7 @@ namespace trabalho
             while (true)
             {
                 Console.Write("Quer Continuar? [S/N] ");
-                string resp = (Console.ReadLine()).ToUpper();
-                char res = resp[0];
+                char res = ((Console.ReadLine()).ToUpper().Trim())[0];
                 if (res == 'S')
                 {
                     return true;
@@ -260,10 +260,7 @@ namespace trabalho
                 {
                     return false;
                 }
-                else
-                {
-                    corMensagem("Opção Invalída... Digote apneas Sim ou Não.", "vermelho");
-                }
+                corMensagem("Opção Invalída:( Digote apneas Sim ou Não.", "vermelho");
             }
         }
         static void corMensagem(string msg, string cor)
@@ -272,31 +269,25 @@ namespace trabalho
             {
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine(msg);
-                Console.ResetColor();
             }
             else if (cor == "vermelho")
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(msg);
-                Console.ResetColor();
             }
             else if (cor == "verde")
             {
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine(msg);
-                Console.ResetColor();
             }
-        }
-        static void center(string teste, int num)
-        {
-            int total, esquerda, direita;
-            string test = "";
-            total = num - teste.Length;
-            direita = (total / 2) + teste.Length;
-            esquerda = num - direita;
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("{0}{1}", teste.PadLeft(direita, ' '), test.PadRight(esquerda - 1, ' '));
             Console.ResetColor();
+        }
+        static void center(string msg, int num)
+        {
+            int total, espaco;
+            total = num - msg.Length;
+            espaco = (total / 2) + msg.Length;
+            corMensagem(msg.PadLeft(espaco, ' '), "azul");
         }
     }
 }

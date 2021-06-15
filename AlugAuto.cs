@@ -12,13 +12,13 @@ namespace trabalho
         {
             listaClientes = new List<Cliente>();
             listaViatura = new List<Viatura>();
-            if (garantirPreco(preco))
+            if (garantir(preco))
             {
                 definirPreco(preco);
             }
             else
             {
-                definirPreco(10);
+                definirPreco(100);
             }
         }
         public bool adicionarCliente(string nome, string carta)
@@ -58,28 +58,32 @@ namespace trabalho
             v.setPrecoDia(preco);
 
         }
-        public bool garantirPreco(decimal preco)
+        public bool garantir(decimal numero)
         {
-            if (preco > 0)
+            if (numero > 0)
             {
                 return true;
             }
             return false;
         }
-        public bool adicionarViaturaUtilitaria(string matricula)
+        public bool adicionarViaturaUtilitaria(string matricula) 
         {
             Viatura v = encontrarViatura(matricula);
             if (v == null)
             {
                 v = new Utilitario(matricula);
-                Utilitario u = new Utilitario(matricula);
-                listaViatura.Add(u);
+                listaViatura.Add(v);
                 return true;
             }
             return false;
         }
         public bool adicionarViaturaLuxo(string matricula, decimal taxa)
         {
+            if (!garantir(taxa) && taxa != 0)
+            {
+                corMensagem("Taxa inválida:(", "vermelho");
+                return false;
+            }
             Viatura v = encontrarViatura(matricula);
             if (v == null)
             {
@@ -115,13 +119,18 @@ namespace trabalho
             Cliente c = encontrarCliente(carta);
             if (c == null)
             {
-                corMensagem("Cliente não existe.", "vermelho");
+                corMensagem($"Cliente «{carta}» não existe:(", "vermelho");
                 return -1;
             }
             Viatura v = encontrarViatura(matricula);
             if (v == null)
             {
-                corMensagem("Viatura não existe.", "vermelho");
+                corMensagem($"Viatura «{matricula}» não existe:(", "vermelho");
+                return -1;
+            }
+            if (!garantir(dias))
+            {
+                corMensagem("Número de dias inválidos:(", "vermelho");
                 return -1;
             }
             Aluguer a = new Aluguer(dias, v.getPreco(), c, v);
@@ -132,11 +141,21 @@ namespace trabalho
         public void listarAlugueresCliente(string carta)
         {
             Cliente c = encontrarCliente(carta);
+            if (c == null)
+            {
+                corMensagem($"Cliente «{carta}» não existe:(", "vermelho");
+                return;
+            }
             c.monstrarAlugueres();
         }
         public void listarAlugueresViatura(string matricula)
         {
             Viatura v = encontrarViatura(matricula);
+            if (v == null)
+            {
+                corMensagem($"Viatura «{matricula}» não existe:(", "vermelho");
+                return;
+            }
             v.listarAlugueres();
         }
         public void monstrarTotalFaturado()
@@ -150,15 +169,13 @@ namespace trabalho
         }
         public void monstrarTotalFaturadoViatura(string matricula)
         {
-            decimal total = 0;
-            foreach (Viatura v in listaViatura)
+            Viatura v = encontrarViatura(matricula);
+            if(v == null)
             {
-                if (v.getMatricula() == matricula)
-                {
-                    total += v.totalFaturado();
-                }
+                corMensagem($"Viatura «{matricula}» não existe:(", "vermelho");
+                return;
             }
-            corMensagem($"Total Faturado: {total}$", "verde");
+            corMensagem($"Total Faturado: {v.totalFaturado()}$", "verde");
         }
         public void monstrarTop(int n)
         {
@@ -169,9 +186,9 @@ namespace trabalho
             decimal max;
             foreach (Viatura v in listaViatura)
             {
-                if (v.getTotal() != 0)
+                if (v.totalFaturado() != 0)
                 {
-                    listaTotal.Add(v.getTotal());
+                    listaTotal.Add(v.totalFaturado());
                 }
                 if (v.getQuant() != 0)
                 {
@@ -208,7 +225,7 @@ namespace trabalho
                 max = listaTotal[i];
                 foreach (Viatura v in listaViatura)
                 {
-                    if (!(v.getTotal() == max))
+                    if (!(v.totalFaturado() == max))
                     {
                         continue;
                     }
@@ -288,16 +305,12 @@ namespace trabalho
                 }
             }
         }
-        static void center(string teste, int num)
+        static void center(string msg, int num)
         {
-            int total, esquerda, direita;
-            string test = "";
-            total = num - teste.Length;
-            direita = (total / 2) + teste.Length;
-            esquerda = num - direita;
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("{0}{1}", teste.PadLeft(direita, ' '), test.PadRight(esquerda - 1, ' '));
-            Console.ResetColor();
+            int total, espaco;
+            total = num - msg.Length;
+            espaco = (total / 2) + msg.Length;
+            corMensagem(msg.PadLeft(espaco, ' '), "azul");
         }
         static void corMensagem(string msg, string cor)
         {
@@ -305,20 +318,18 @@ namespace trabalho
             {
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine(msg);
-                Console.ResetColor();
             }
             else if (cor == "vermelho")
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(msg);
-                Console.ResetColor();
             }
             else if (cor == "verde")
             {
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine(msg);
-                Console.ResetColor();
             }
+            Console.ResetColor();
         }
         static void titulo(string txt)
         {

@@ -19,17 +19,16 @@ namespace trabalho
         public void monstrarAluguer(int op)
         {
             Console.WriteLine($"ID: {id}");
-            Console.WriteLine($"Dias: {this.dias}");
-            Console.WriteLine($"Valor: {this.valor}$");
+            Console.WriteLine($"Dias: {dias}");
+            Console.WriteLine($"Valor: {valor}$");
             if (op == 1)
             {
-                Console.WriteLine($"Viatura: {this.v.getMatricula()}");
+                Console.WriteLine($"Viatura: {v.getMatricula()}");
             }
             else if(op == 2)
             {
-                Console.WriteLine($"Cliente: {this.getCarta()}");
+                Console.WriteLine($"Cliente: {c.getCarta()}");
             }
-            
         }
         public decimal getValor()
         {
@@ -38,14 +37,6 @@ namespace trabalho
         public int getID()
         {
             return this.id;
-        }
-        public string getMatricula()
-        {
-            return v.getMatricula();
-        }
-        public string getCarta()
-        {
-            return c.getCarta();
         }
     }
 }

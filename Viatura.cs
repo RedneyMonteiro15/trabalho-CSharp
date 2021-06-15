@@ -23,11 +23,11 @@ namespace trabalho
         }
         public string getMatricula()
         {
-            return this.matricula;
+            return matricula;
         }
         public virtual void monstarViatura()
         {
-            Console.WriteLine($"Matrícula: {this.matricula}");
+            Console.WriteLine($"Matrícula: { matricula}");
             Console.WriteLine($"Preço Dia: {precoDia}$");
         }
         public void listarAlugueres()
@@ -51,15 +51,6 @@ namespace trabalho
         public decimal getPrecoDia()
         {
             return precoDia;
-        }
-        public decimal getTotal()
-        {
-            decimal total = 0;
-            foreach (Aluguer a in listaAluguer)
-            {
-                total += a.getValor();
-            }
-            return total;
         }
         public int getQuant()
         {
