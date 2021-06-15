@@ -1,6 +1,7 @@
 //Redney Monteiro a46398
 using System;
 using System.Collections.Generic;
+using System.Threading;
 namespace trabalho
 {
     public abstract class Viatura
@@ -36,6 +37,7 @@ namespace trabalho
             foreach (Aluguer a in listaAluguer)
             {
                 Console.WriteLine("------------------------------");
+                Thread.Sleep(500);
                 a.monstrarAluguer(2);
             }
         }

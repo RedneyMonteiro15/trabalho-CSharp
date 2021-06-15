@@ -23,75 +23,123 @@ namespace trabalho
             a.registrarAluguer("C2", "U1", 4);
             a.registrarAluguer("C1", "U1", 4);
             a.registrarAluguer("C2", "L2", 2);
-            a.registrarAluguer("C3", "L3", 2); 
+            a.registrarAluguer("C3", "L3", 2);
             a.registrarAluguer("C2", "L2", 6);
 
             while (true)
             {
                 titulo("AlugAuto");
                 int op;
-                header("Adicionar Veiculo", "Adicionar Cliente", "Registrar Aluguer", "Monstrar", "Estatisticas", "Sair");
+                header("Adicionar ", "Remover", "Registrar Aluguer", "Monstrar", "Estatisticas", "Sair");
                 op = leiaOp(6);
                 if (op == 1)
                 {
                     Console.Clear();
-                    titulo("Adicionar Veiculo");
-                    header("Luxo", "Utilitario");
+                    titulo("Adicionar");
+                    header("Cliente", "Viatura");
                     op = leiaOp(2);
                     if (op == 1)
                     {
                         Console.Clear();
-                        titulo("Adicionar Veiculo Luxo");
+                        titulo("Adicionar Cliente");
                         linha();
-                        Console.Write("Matrícula: ");
-                        string matricula = (Console.ReadLine()).ToUpper();
-                        Console.Write("Taxa: ");
-                        decimal taxa = Convert.ToDecimal(Console.ReadLine());
-                        bool resp = a.adicionarViaturaLuxo(matricula, taxa);
+                        Console.Write("Nome: ");
+                        string nome = (Console.ReadLine()).ToUpper();
+                        Console.Write("Carta: ");
+                        string carta = (Console.ReadLine()).ToUpper();
+                        bool resp = a.adicionarCliente(nome, carta);
                         if (!resp)
                         {
-                            corMensagem("ERRO!!! Não foi possível adicionar Viatura:(", "vermelho");
+                            corMensagem("ERRO!!! Não foi possível adicionar Cliente:(", "vermelho");
                         }
                         else
                         {
-                            corMensagem($"Viatura «{matricula}» adicionada com sucesso:)", "verde");
+                            corMensagem($"Cliente «{nome}» adicionada com sucesso:)", "verde");
                         }
                     }
                     else if (op == 2)
                     {
                         Console.Clear();
-                        titulo("Adicionar Veiculo Utilitaria");
-                        linha();
-                        Console.Write("Matrícula: ");
-                        string matricula = (Console.ReadLine()).ToUpper();
-                        bool resp = a.adicionarViaturaUtilitaria(matricula);
-                        if (!resp)
+                        titulo("Adicionar Viatura");
+                        header("Luxo", "Utilitario");
+                        op = leiaOp(2);
+                        if (op == 1)
                         {
-                            corMensagem("ERRO!!! Não foi possível adicionar Viatura:(", "vermelho");
+                            Console.Clear();
+                            titulo("Adicionar Viatura Luxo");
+                            linha();
+                            Console.Write("Matrícula: ");
+                            string matricula = (Console.ReadLine()).ToUpper();
+                            Console.Write("Taxa: ");
+                            decimal taxa = Convert.ToDecimal(Console.ReadLine());
+                            bool resp = a.adicionarViaturaLuxo(matricula, taxa);
+                            if (!resp)
+                            {
+                                corMensagem("ERRO!!! Não foi possível adicionar Viatura:(", "vermelho");
+                            }
+                            else
+                            {
+                                corMensagem($"Viatura «{matricula}» adicionada com sucesso:)", "verde");
+                            }
                         }
-                        else
+                        else if (op == 2)
                         {
-                            corMensagem($"Viatura «{matricula}» adicionada com sucesso:)", "verde");
+                            Console.Clear();
+                            titulo("Adicionar Viatura Utilitaria");
+                            linha();
+                            Console.Write("Matrícula: ");
+                            string matricula = (Console.ReadLine()).ToUpper();
+                            bool resp = a.adicionarViaturaUtilitaria(matricula);
+                            if (!resp)
+                            {
+                                corMensagem("ERRO!!! Não foi possível adicionar Viatura:(", "vermelho");
+                            }
+                            else
+                            {
+                                corMensagem($"Viatura «{matricula}» adicionada com sucesso:)", "verde");
+                            }
                         }
                     }
                 }
                 else if (op == 2)
                 {
                     Console.Clear();
-                    titulo("Adicionar Cliente");
-                    linha();
-                    Console.Write("Nome: ");
-                    string nome = (Console.ReadLine()).ToUpper();
-                    Console.Write("Carta: ");
-                    string carta = (Console.ReadLine()).ToUpper();
-                    bool resp = a.adicionarCliente(nome, carta);
-                    if (!resp)
+                    titulo("Remover");
+                    header("Cliente", "Viatura");
+                    op = leiaOp(2);
+                    if (op == 1)
                     {
-                        corMensagem("ERRO!!! Não foi possível adicionar Cliente:(", "vermelho");
+                        Console.Clear();
+                        titulo("Remover Cliente");
+                        linha();
+                        Console.Write("Nome: ");
+                        string carta = (Console.ReadLine()).ToUpper();
+                        bool resp = a.removerCliente(carta);
+                        if (!resp)
+                        {
+                            corMensagem("ERRO!!! Não foi possível remover Cliente:(", "vermelho");
+                        }
+                        else
+                        {
+                            corMensagem($"Cliente «{carta}» removido com sucesso:)", "verde");
+                        }
                     }
-                    else
+                    else if (op == 2)
                     {
-                        corMensagem($"Cliente «{nome}» adicionada com sucesso:)", "verde");
+                        Console.Clear();
+                        titulo("Remover Viatura");
+                            linha();
+                            Console.Write("Matrícula: ");
+                            string matricula = (Console.ReadLine()).ToUpper();
+                            bool resp = a.removerViatura(matricula);
+                            if (!resp)
+                            {
+                                corMensagem("ERRO!!! Não foi possível adicionar Viatura:(", "vermelho");
+                            }
+                            else
+                            {
+                                corMensagem($"Viatura «{matricula}» adicionada com sucesso:)", "verde");
+                            }
                     }
                 }
                 else if (op == 3)
@@ -142,7 +190,7 @@ namespace trabalho
                             linha();
                             Console.Write("Carta: ");
                             string carta = (Console.ReadLine()).ToUpper();
-                            titulo($"Lista de Aluguer de {carta}");  
+                            titulo($"Lista de Aluguer de {carta}");
                             a.listarAlugueresCliente(carta);
                         }
                         else if (op == 2)
@@ -152,7 +200,7 @@ namespace trabalho
                             linha();
                             Console.Write("Matrícula: ");
                             string matricula = (Console.ReadLine()).ToUpper();
-                            titulo($"Lista de Aluguer de {matricula}"); 
+                            titulo($"Lista de Aluguer de {matricula}");
                             a.listarAlugueresViatura(matricula);
                         }
                     }
@@ -200,7 +248,6 @@ namespace trabalho
                 {
                     break;
                 }
-                
                 linha();
                 bool cont = continuar();
                 if (!cont)

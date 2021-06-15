@@ -106,6 +106,28 @@ namespace trabalho
             }
             return null;
         }
+        public bool removerViatura(string matricula)
+        {
+            Viatura v = encontrarViatura(matricula);
+            if(v == null)
+            {
+                corMensagem($"Viatura «{matricula}» não existe.", "vermelho");
+                return false;
+            }
+            listaViatura.Remove(v);
+            return true;
+        }
+        public bool removerCliente(string carta)
+        {
+            Cliente c = encontrarCliente(carta);
+            if (c == null)
+            {
+                corMensagem("Cliente «{carta}» não existe.", "vermelho");
+                return false;
+            }
+            listaClientes.Remove(c);
+            return true;
+        }
         public void listarViatura()
         {
             foreach (Viatura v in listaViatura)

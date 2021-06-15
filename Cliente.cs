@@ -1,6 +1,7 @@
 //Redney Monteiro a46398
 using System;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace trabalho
 {
@@ -31,6 +32,7 @@ namespace trabalho
         {
             foreach (Aluguer a in listaAluguer)
             {
+                Thread.Sleep(500);
                 Console.WriteLine("------------------------------");
                 a.monstrarAluguer(1);
             }
