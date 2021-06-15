@@ -1,5 +1,5 @@
-﻿using System;
-using System.Globalization;
+﻿//Redney Monteiro a46398
+using System;
 
 namespace trabalho
 {
