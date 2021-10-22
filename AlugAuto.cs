@@ -57,7 +57,6 @@ namespace trabalho
         {
             Viatura v = new Utilitario(null);
             v.setPrecoDia(preco);
-
         }
         public bool garantir(decimal numero)
         {

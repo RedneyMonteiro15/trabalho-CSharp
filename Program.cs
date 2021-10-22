@@ -307,7 +307,7 @@ namespace trabalho
                 {
                     return false;
                 }
-                corMensagem("Opção Invalída:( Digote apneas Sim ou Não.", "vermelho");
+                corMensagem("Opção Invalída:( Digite apenas Sim ou Não.", "vermelho");
             }
         }
         static void corMensagem(string msg, string cor)

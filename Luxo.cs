@@ -13,7 +13,6 @@ namespace trabalho
         }
         public override decimal getPreco()
         {
-            
             return (base.getPrecoDia() + (base.getPrecoDia() * this.taxa / 100));
         }
         public override void monstarViatura()
